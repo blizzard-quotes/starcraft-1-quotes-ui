@@ -72,7 +72,7 @@ export default {
     loading: false,
     examplesRandom: [
       `${process.env.VUE_APP_API_URL}/v1/quotes/random`,
-      `${process.env.VUE_APP_API_URL}/v1/quotes/random?faction=&action=confirming&not_faction=zerg`
+      `${process.env.VUE_APP_API_URL}/v1/quotes/random?action=confirming&not_faction=zerg`
     ],
     examplesCollection: [
       `${process.env.VUE_APP_API_URL}/v1/quotes`,
