@@ -5,10 +5,9 @@
     <p class="font-italic text-justify">{{ flavorText }}</p>
     <p class="text-justify">
       {{ url }} was created to easily access and remember memorable quotes from
-      the famous real-time strategy game, Starcraft. Includes unit quotes
-      from Starcraft and Brood War expansion pack. Does not include
-      any cutscene or cinematic quotes. For information regarding the API, see
-      the Swagger UI.
+      the famous real-time strategy game, Starcraft. Includes unit quotes from
+      Starcraft and Brood War expansion pack. Does not include any cutscene or
+      cinematic quotes. For information regarding the API, see the Swagger UI.
     </p>
     <v-btn
       id="refresh-button"
@@ -72,24 +71,24 @@ export default {
     loading: false,
     examplesRandom: [
       `${process.env.VUE_APP_API_URL}/v1/quotes/random`,
-      `${process.env.VUE_APP_API_URL}/v1/quotes/random?action=confirming&not_faction=zerg`
+      `${process.env.VUE_APP_API_URL}/v1/quotes/random?action=confirming&not_faction=zerg`,
     ],
     examplesCollection: [
       `${process.env.VUE_APP_API_URL}/v1/quotes`,
-      `${process.env.VUE_APP_API_URL}/v1/quotes?action=pissed&limit=5`
+      `${process.env.VUE_APP_API_URL}/v1/quotes?action=pissed&limit=5`,
     ],
-    easterEggArray: []
+    easterEggArray: [],
   }),
   created() {
     this.randomQuote();
   },
   mounted() {
-    window.addEventListener('keypress', e => {
+    window.addEventListener('keypress', (e) => {
       if (String.fromCharCode(e.keyCode) === 'r') {
         this.randomQuote();
       }
     });
-    window.addEventListener('keydown', e => {
+    window.addEventListener('keydown', (e) => {
       this.easterEggArray.push(e.keyCode);
 
       if (
@@ -128,12 +127,12 @@ export default {
       this.loading = true;
       axios
         .get(`${process.env.VUE_APP_API_URL}/v1/quotes/random`)
-        .then(res => {
+        .then((res) => {
           this.quote = res.data;
           this.randomFlavorText();
           this.loading = false;
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err);
           this.loading = false;
         });
@@ -252,7 +251,7 @@ export default {
       } else {
         return false;
       }
-    }
-  }
+    },
+  },
 };
 </script>
